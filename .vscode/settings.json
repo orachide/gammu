@@ -1,0 +1,8 @@
+{
+    "files.associations": {
+        "*.ejs": "html",
+        "*.dat": "CSV (pipe)",
+        "*.csv": "CSV (semicolon)",
+        "stdarg.h": "c"
+    }
+}
