@@ -84,6 +84,7 @@ struct _GSM_SMSDConfig {
 	unsigned int multiparttimeout;
 	const char   *deliveryreport, *logfilename, *logfacility,  *PINCode, *NetworkCode, *PhoneCode;
 	const char	*PhoneID;
+	const char	*USSDAutoReply;
 	const char   *RunOnReceive;
 	const char   *RunOnFailure; /* run this command on phone communication failure */
 	const char   *RunOnSent; /* run this command when an SMS has been sent successfully */

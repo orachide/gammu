@@ -2026,6 +2026,35 @@ void SMSD_IncomingUSSDCallback(GSM_StateMachine *sm UNUSED, GSM_USSDMessage *uss
 	if (error != ERR_NONE) {
 		SMSD_LogError(DEBUG_INFO, Config, "Error processing USSD", error);
 	}
+	//TODO Auto Reply to USSD If needed
+  if (USSD_ActionNeeded == ussd->Status)
+  {
+    SMSD_Log(DEBUG_INFO, Config, "USSD response need to reply: USSD response status %d\n", ussd->Status);
+    if (Config->USSDAutoReply != NULL)
+    {
+      SMSD_Log(DEBUG_INFO, Config, "Dialing USSD auto reply: %s\n", Config->USSDAutoReply);
+      error = GSM_DialService(Config->gsm, Config->USSDAutoReply);
+      if (error == ERR_NONE)
+      {
+        Config->SendingSMSStatus = ERR_NONE;
+      }
+      if (error != ERR_NONE)
+      {
+        SMSD_LogError(DEBUG_INFO, Config, "Error sending USSD auto response", error);
+        Config->TPMR = -1;
+        goto failure_unsent;
+      }
+    } else
+    {
+      SMSD_Log(DEBUG_INFO, Config, "No USSD Auto Reply is configured");
+    }
+  }
+failure_unsent:
+  if (Config->RunOnFailure != NULL)
+  {
+    SMSD_RunOn(Config->RunOnFailure, NULL, Config, Config->SMSID, "failure");
+  }
+  Config->Status->Failed++;
 }
 
 #define INIT_SMSINFO_CACHE_SIZE 10
