@@ -1,0 +1,7 @@
+etc/init.d/gammu-smsd
+usr/share/doc/gammu/COPYING
+usr/share/doc/gammu/ChangeLog
+usr/share/gammu/gammu-s60-remote.sis
+usr/share/gammu/gnapplet.ini
+usr/share/gammu/gnapplet.sis
+lib/systemd/system/gammu-smsd.service

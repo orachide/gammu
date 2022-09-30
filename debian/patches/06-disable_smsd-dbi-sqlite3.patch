@@ -1,0 +1,22 @@
+Description: Disable the unreliable smsd-dbi-sqlite3 test
+ The smsd-dbi-sqlite3 test fails randomly because it is very
+ sensitive to timing and host's performance. Disable it to
+ obtain saner build/test results.
+ .
+Author: Boian Bonev <bbonev@ipacct.com>
+Origin: other
+Forwarded: not-needed
+Last-Update: 2021-10-20
+
+--- a/smsd/CMakeTests.txt
++++ b/smsd/CMakeTests.txt
+@@ -57,7 +57,8 @@ if (WITH_BACKUP)
+     endmacro(smsd_testsuite _driver)
+ 
+     if (LIBDBI_FOUND AND SH_BIN AND SQLITE_BIN AND SED_BIN)
+-        smsd_testsuite("dbi-sqlite3")
++		# Disable this unreliable test for Debian builds
++        # smsd_testsuite("dbi-sqlite3")
+     endif (LIBDBI_FOUND AND SH_BIN AND SQLITE_BIN AND SED_BIN)
+ 
+     if (SH_BIN)

@@ -1,0 +1,11 @@
+Document: gammu
+Title: The Gammu Manual
+Author: Michal Čihař <michal@cihar.com>
+Abstract: Comprehensive documentation covering
+ Gammu command line utilities, Gammu SMS Daemon, Python bindings for Gammu and
+ libGammu library API.
+Section: Mobile Devices
+
+Format: HTML
+Index: /usr/share/doc/gammu/html/index.html
+Files: /usr/share/doc/gammu/html/*.html

@@ -1,0 +1,23 @@
+Description: Change path of config file
+ The proper location is /etc/default/gammu-smsd
+ .
+Author: Boian Bonev <bbonev@ipacct.com>
+Origin: other
+Forwarded: not-needed
+Last-Update: 2021-09-22
+
+--- a/contrib/init/gammu-smsd.service
++++ b/contrib/init/gammu-smsd.service
+@@ -4,10 +4,10 @@ Documentation=man:gammu-smsd(1)
+ After=mysql.service postgresql.service network-online.target
+ 
+ [Service]
+-EnvironmentFile=-/etc/sysconfig/gammu-smsd
++EnvironmentFile=-/etc/default/gammu-smsd
+ # Run daemon as root user
+ ExecStart=${CMAKE_INSTALL_FULL_BINDIR}/gammu-smsd --pid=/run/gammu-smsd.pid --daemon
+-# Run daemon as non-root user (set user/group in /etc/sysconfig/gammu-smsd)
++# Run daemon as non-root user (set user/group in /etc/default/gammu-smsd)
+ #ExecStart=${CMAKE_INSTALL_FULL_BINDIR}/gammu-smsd --user=${GAMMU_USER} --group=${GAMMU_GROUP} --pid=/run/gammu-smsd.pid --daemon
+ ExecReload=/bin/kill -HUP $MAINPID
+ ExecStopPost=/bin/rm -f /run/gammu-smsd.pid

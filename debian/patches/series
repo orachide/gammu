@@ -1,0 +1,6 @@
+01-change_pid_file_location.patch
+02-spelling.patch
+03-bufsz.patch
+04-fix_path_in_sd-unit.patch
+06-disable_smsd-dbi-sqlite3.patch
+07-use_posix_shell_only.patch

@@ -1,0 +1,78 @@
+Description: Increase fixed buffers
+ Increase fixed buffer sizes to avoid possible overruns
+Author: Boian Bonev <bbonev@ipacct.com>
+Origin: other
+Forwarded: not-needed
+Last-Update: 2021-09-23
+
+--- a/libgammu/phone/at/atgen.c
++++ b/libgammu/phone/at/atgen.c
+@@ -2559,7 +2559,7 @@ GSM_Error ATGEN_SetCharset(GSM_StateMach
+ {
+ 	GSM_Phone_ATGENData	*Priv = &s->Phone.Data.Priv.ATGEN;
+ 	GSM_Error		error;
+-	char			buffer[100];
++	char			buffer[120];
+ 	char			buffer2[100];
+ 	char			buffer3[100];
+ 	int			i = 0;
+@@ -3783,7 +3783,7 @@ GSM_Error ATGEN_ReplyGetCPBRMemoryStatus
+ GSM_Error ATGEN_GetMemoryInfo(GSM_StateMachine *s, GSM_MemoryStatus *Status, GSM_AT_NeededMemoryInfo NeededInfo)
+ {
+ 	GSM_Error		error;
+-	char			req[20]={'\0'};
++	char			req[30]={'\0'};
+ 	int			start = 0,end = 0,memory_end = 0;
+ 	GSM_Phone_ATGENData 	*Priv = &s->Phone.Data.Priv.ATGEN;
+ 	gboolean		free_read = FALSE;
+@@ -4252,7 +4252,7 @@ GSM_Error ATGEN_ReplyGetMemory(GSM_Proto
+ GSM_Error ATGEN_PrivGetMemory (GSM_StateMachine *s, GSM_MemoryEntry *entry, int endlocation)
+ {
+ 	GSM_Error 		error;
+-	char		req[20];
++	char		req[40];
+ 	GSM_Phone_ATGENData	*Priv = &s->Phone.Data.Priv.ATGEN;
+ 	size_t len;
+ 
+--- a/libgammu/service/backup/backtext.c
++++ b/libgammu/service/backup/backtext.c
+@@ -102,7 +102,7 @@ static unsigned char *ReadCFGText(INI_Se
+ static GSM_Error SaveLinkedBackupText(FILE *file, const char *myname, const char *myvalue, const gboolean UseUnicode)
+ {
+ 	int 		w,current;
+-	unsigned char 	buffer2[1000],buffer3[1000];
++	unsigned char 	buffer2[1000],buffer3[1020];
+ 
+ 	current = strlen(myvalue); w = 0;
+ 	while (TRUE) {
+--- a/smsd/core.c
++++ b/smsd/core.c
+@@ -1926,7 +1926,7 @@ GSM_Error SMSD_InitSharedMemory(GSM_SMSD
+ 	/* Initial shared memory content */
+ 	if (writable) {
+ 		Config->Status->Version = SMSD_SHM_VERSION;
+-		strncpy(Config->Status->PhoneID, Config->PhoneID, sizeof(Config->Status->PhoneID));
++		strncpy(Config->Status->PhoneID, Config->PhoneID, sizeof(Config->Status->PhoneID) - 1);
+ 		Config->Status->PhoneID[sizeof(Config->Status->PhoneID) - 1] = 0;
+ 		sprintf(Config->Status->Client, "Gammu %s on %s compiler %s",
+ 			GAMMU_VERSION,
+--- a/smsd/services/files.c
++++ b/smsd/services/files.c
+@@ -69,7 +69,7 @@ static GSM_Error SMSDFiles_SaveInboxSMS(
+ {
+ 	GSM_Error error = ERR_NONE;
+ 	int i, j;
+-	unsigned char FileName[100], FullName[PATH_MAX], ext[4], buffer[64], buffer2[400];
++	unsigned char FileName[PATH_MAX], FullName[PATH_MAX], ext[4], buffer[64], buffer2[400];
+ 	gboolean done;
+ 	FILE *file;
+ 	size_t locations_size = 0, locations_pos = 0;
+@@ -569,7 +569,7 @@ static GSM_Error SMSDFiles_CreateOutboxS
+ {
+ 	int i, j;
+ 	int fd;
+-	unsigned char FileName[100], FullName[PATH_MAX], ext[17], buffer[64], buffer2[400];
++	unsigned char FileName[PATH_MAX], FullName[PATH_MAX], ext[17], buffer[64], buffer2[400];
+ 	FILE *file = NULL;
+ 	time_t rawtime;
+ 	struct tm *timeinfo;

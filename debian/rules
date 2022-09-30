@@ -1,0 +1,40 @@
+#!/usr/bin/make -f
+
+# Uncomment this to turn on verbose mode.
+#export DH_VERBOSE=1
+
+export DPKG_EXPORT_BUILDFLAGS = 1
+export DEB_BUILD_MAINT_OPTIONS = hardening=+all
+export DEB_HOST_MULTIARCH ?= $(shell dpkg-architecture -qDEB_HOST_MULTIARCH)
+include /usr/share/dpkg/buildflags.mk
+
+%:
+	dh $@ --with sphinxdoc --buildsystem=cmake
+
+override_dh_auto_build:
+	dh_auto_build --parallel
+ifneq (,$(filter gammu-doc,$(shell dh_listpackages)))
+	dh_auto_build -- manual-html
+endif
+
+override_dh_auto_test:
+	dh_auto_test --no-parallel
+
+override_dh_compress:
+	dh_compress -X.js -Xobjects.inv -X.txt -X.py
+
+override_dh_makeshlibs:
+	dh_makeshlibs -V
+
+override_dh_auto_configure:
+	dh_auto_configure -- \
+		-DINSTALL_LIBDATA_DIR=/usr/lib/${DEB_HOST_MULTIARCH} \
+		-DSYSTEMD_SERVICES_INSTALL_DIR=/usr/lib/systemd/system \
+		-DCMAKE_BUILD_RPATH_USE_ORIGIN=ON \
+		-DINSTALL_LSB_INIT=ON \
+		-DSYSTEMD_FOUND=ON \
+		-DWITH_SYSTEMD=ON
+
+override_dh_installsystemd:
+	dh_installinit --no-scripts
+	dh_installsystemd

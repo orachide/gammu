@@ -1,0 +1,230 @@
+Format: https://www.debian.org/doc/packaging-manuals/copyright-format/1.0/
+Upstream-Name: gammu
+Upstream-Contact: Michal Čihař <nijel@debian.org>
+Source: https://github.com/gammu/gammu/releases
+ This package was debianized by Michal Čihař <nijel@debian.org> on
+ Mon,  5 Sep 2005 10:42:21 +0200.
+ .
+ It was downloaded from http://cihar.com/gammu/
+
+Files: *
+Copyright:
+ Copyright (C) 2002-2009 by Marcin Wiacek, Michal Cihar and others
+License: GPL-2
+
+Files: debian/*
+Copyright:
+ The Debian packaging is Copyright (C) 2005 - 2020, Michal Čihař
+ <nijel@debian.org> and is licensed under the GPL, see above.
+License: GPL-2
+
+Files:
+ libgammu/service/gsmdata.c
+ smsd/core.[ch]
+ smsd/log.h
+ smsd/services/files.[ch]
+Copyright:
+ Copyright (C) 2002-2004 by Marcin Wiacek and Joergen Thomsen
+ Copyright (C) 2009 by Michal Čihař
+License: GPL-2
+
+Files:
+ libgammu/device/bluetooth/bluez.[ch]
+ libgammu/device/devfunc.c
+ libgammu/device/irda/irda.c
+ libgammu/device/serial/ser_unx.c
+ libgammu/device/serial/ser_w32.c
+ libgammu/misc/coding/coding.c
+ libgammu/phone/nokia/dct3/dct3func.c
+ libgammu/phone/nokia/dct3/n6110.c
+ libgammu/phone/nokia/dct3/n7110.c
+ libgammu/phone/nokia/dct4s40/6510/n6510.[ch]
+ libgammu/protocol/nokia/fbus2.[ch]
+ libgammu/protocol/nokia/phonet.[ch]
+ libgammu/service/gsmring.c
+ libgammu/service/sms/gsmsms.[ch]
+Copyright:
+ Copyright (C) 1999-2000 Hugh Blemings & Pavel Janik ml.
+ Copyright (C) 2001-2004 Pawel Kot
+License: GPL-2
+
+Files: gammu/depend/nokia/dct3trac/*
+Copyright: Copyright (C) 2003 wumpus -- www.blacksphere.tk
+License: GPL-2
+
+Files: libgammu/misc/coding/md5.[ch]
+Copyright: 1993 Ron Rivest, Colin Plumb
+License: MD5-PD
+
+Files: gammu-detect/udev.c
+Copyright:
+ Copyright (C) 2009 Red Hat, Inc.
+ Copyright (c) 2010 Michal Cihar <michal@cihar.com>
+License: GPL-2+
+
+Files: gammu-detect/bluez.c
+Copyright: Copyright (c) 2010 Michal Cihar <michal@cihar.com>
+License: GPL-2+
+
+Files: gammu-detect/main.c
+Copyright: Copyright (c) 2010 - 2011 Michal Cihar <michal@cihar.com>
+License: GPL-2+
+
+Files:
+ gammu-detect/win32-serial.c
+ libgammu/protocol/s60/s60.[ch]
+ libgammu/phone/s60/s60phone.[ch]
+Copyright: Copyright (c) 2011 Michal Cihar <michal@cihar.com>
+License: GPL-2+
+
+Files: libgammu/phone/at/sonyericsson.[ch]
+Copyright: Copyright (C) 2011 Márton Németh <nm127@freemail.hu>
+License: GPL-2+
+
+Files: libgammu/misc/win32-dirent.[ch]
+Copyright: Copyright (C) 2017  Z. Gilboa
+License: GPL-2+
+
+Files: contrib/smscgi/*
+Copyright: Copyright (C) 2007  Kamanashis Roy (kamanashisroy@gmail.com)
+License: SMSCGI-GPL-3+
+
+Files: contrib/symbian/gnapplet/*
+Copyright:
+ Copyright (C) 2004 BORBELY Zoltan
+ Copyright (C) 2005 BORBELY Zoltan
+ Copyright (C) 2007 Matthias Lechner <matthias@lmme.de>
+License: GNAPP-GPL-2+
+
+Files:
+ smsd/services/odbc.c
+ smsd/services/dbi.c
+ smsd/services/sql.c
+ libgammu/device/usb/usb.[ch]
+Copyright:
+ Copyright (C) 2009 Michal Čihař
+ Copyright (c) 2009 - 2018 Michal Cihar <michal@cihar.com>
+ Copyright (c) 2010 Miloslav Semler
+License: SHORT-GPL-2+
+
+Files: libgammu/device/bluetooth/blue_osx.c
+Copyright:
+ Copyright (C) 1999-2000  Hugh Blemings & Pavel Janík ml.
+ Copyright (C) 2003       Siegfried Schloissnig
+License: GNOKII-GPL-2+
+
+Files: libgammu/device/irda/irda_unx.h
+Copyright: Copyright (c) 1999 Dag Brattli, All Rights Reserved.
+License: IRDA-GPL-2+
+
+License: GPL-2
+ This package is free software; you can redistribute it and/or modify
+ it under the terms of the GNU General Public License as published by
+ the Free Software Foundation; either version 2 of the License, or
+ (at your option) any later version.
+ .
+ This package is distributed in the hope that it will be useful,
+ but WITHOUT ANY WARRANTY; without even the implied warranty of
+ MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+ GNU General Public License for more details.
+ .
+ You should have received a copy of the GNU General Public License
+ along with this package; if not, write to the Free Software
+ Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA  02110-1301 USA
+ .
+ On Debian systems, the complete text of the GNU General
+ Public License version 2 can be found in `/usr/share/common-licenses/GPL-2'.
+
+License: MD5-PD
+ This code implements the MD5 message-digest algorithm.
+ The algorithm is due to Ron Rivest.  This code was
+ written by Colin Plumb in 1993, no copyright is claimed.
+ This code is in the public domain; do with it what you wish.
+ .
+ Equivalent code is available from RSA Data Security, Inc.
+ This code has been tested against that, and is equivalent,
+ except that you don't need to include two pages of legalese
+ with every copy.
+ .
+ To compute the message digest of a chunk of bytes, declare an
+ MD5Context structure, pass it to MD5Init, call MD5Update as
+ needed on buffers full of bytes, and then call MD5Final, which
+ will fill a supplied 16-byte array with the digest.
+
+License: GPL-2+
+ This program is free software; you can redistribute it and/or modify
+ it under the terms of the GNU General Public License as published by
+ the Free Software Foundation; either version 2 of the License, or
+ (at your option) any later version.
+ .
+ This program is distributed in the hope that it will be useful,
+ but WITHOUT ANY WARRANTY; without even the implied warranty of
+ MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+ GNU General Public License for more details.
+ .
+ You should have received a copy of the GNU General Public License along
+ with this program; if not, write to the Free Software Foundation, Inc.,
+ 51 Franklin Street, Fifth Floor, Boston, MA 02110-1301 USA.
+
+License: SHORT-GPL-2+
+ Licensed under GNU GPL version 2 or later
+
+License: SMSCGI-GPL-3+
+ smscgi is free software: you can redistribute it and/or modify
+ it under the terms of the GNU General Public License as published by
+ the Free Software Foundation, either version 3 of the License, or
+ (at your option) any later version.
+ .
+ smscgi is distributed in the hope that it will be useful,
+ but WITHOUT ANY WARRANTY; without even the implied warranty of
+ MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+ GNU General Public License for more details.
+ .
+ You should have received a copy of the GNU General Public License
+ along with smscgi.  If not, see <http://www.gnu.org/licenses/>.
+
+License: GNAPP-GPL-2+
+ gnapplet is a gnbus protocol driver for symbian phones.
+ .
+ This file is part of gnokii.
+ .
+ Gnokii is free software; you can redistribute it and/or modify
+ it under the terms of the GNU General Public License as published by
+ the Free Software Foundation; either version 2 of the License, or
+ (at your option) any later version.
+ .
+ Gnokii is distributed in the hope that it will be useful,
+ but WITHOUT ANY WARRANTY; without even the implied warranty of
+ MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+ GNU General Public License for more details.
+ .
+ You should have received a copy of the GNU General Public License
+ along with gnokii; if not, write to the Free Software
+ Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA 02110-1301, USA.
+
+License: GNOKII-GPL-2+
+ Based over gnokii code, addapation to Gammu by Michal Čihař
+ .
+ Gnokii is free software; you can redistribute it and/or modify
+ it under the terms of the GNU General Public License as published by
+ the Free Software Foundation; either version 2 of the License, or
+ (at your option) any later version.
+ .
+ Gnokii is distributed in the hope that it will be useful,
+ but WITHOUT ANY WARRANTY; without even the implied warranty of
+ MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+ GNU General Public License for more details.
+ .
+ You should have received a copy of the GNU General Public License
+ along with gnokii; if not, write to the Free Software
+ Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA 02110-1301, USA.
+
+License: IRDA-GPL-2+
+ This program is free software; you can redistribute it and/or
+ modify it under the terms of the GNU General Public License as
+ published by the Free Software Foundation; either version 2 of
+ the License, or (at your option) any later version.
+ .
+ Neither Dag Brattli nor University of Tromsø admit liability nor
+ provide warranty for any of this software. This material is
+ provided "AS-IS" and at no charge.

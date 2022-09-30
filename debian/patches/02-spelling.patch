@@ -1,0 +1,161 @@
+Description: Spelling fixes
+ Fix spelling errors in man pages and strings included in binaries.
+Author: Boian Bonev <bbonev@ipacct.com>
+Origin: other
+Forwarded: not-needed
+Last-Update: 2021-09-22
+
+--- a/docs/man/gammu-smsd.1
++++ b/docs/man/gammu-smsd.1
+@@ -291,7 +291,7 @@ You now should be able to get errors fro
+ service.
+ .SS Invoking Gammu and suspending SMSD
+ .sp
+-As you can not run Gammu and Gammu SMSD at same time on signle device, you can
++As you can not run Gammu and Gammu SMSD at same time on single device, you can
+ workaround this limitation by suspending SMSD temporarily using \fISIGUSR1\fP and
+ \fISIGUSR2\fP signals (see also \fI\%Signals\fP):
+ .INDENT 0.0
+--- a/docs/man/gammu-smsdrc.5
++++ b/docs/man/gammu-smsdrc.5
+@@ -784,7 +784,7 @@ Default is \fBunicode\fP\&.
+ \fBNOTE:\fP
+ .INDENT 7.0
+ .INDENT 3.5
+-In \fBdetail\fP format, all message parts are stored into signle file,
++In \fBdetail\fP format, all message parts are stored into single file,
+ for all others each message part is saved separately.
+ .UNINDENT
+ .UNINDENT
+--- a/docs/man/gammu.1
++++ b/docs/man/gammu.1
+@@ -277,7 +277,7 @@ will see location. If you want to get su
+ .INDENT 0.0
+ .TP
+ .B geteachsms \-pbk
+-Similiary to \fBgammu getallsms\fP\&. Difference is, that
++Similarly to \fBgammu getallsms\fP\&. Difference is, that
+ links all concatenated sms
+ .UNINDENT
+ .INDENT 0.0
+@@ -530,7 +530,7 @@ _
+ T{
+ Character
+ T}	T{
+-Formating
++Formatting
+ T}
+ _
+ T{
+@@ -1009,12 +1009,12 @@ Delete folder with given ID.
+ .INDENT 0.0
+ .TP
+ .B getfilefolder fileID, fileID
+-Retrieve files or all files from folder with given IDs from a phone filesytem.
++Retrieve files or all files from folder with given IDs from a phone filesystem.
+ .UNINDENT
+ .INDENT 0.0
+ .TP
+ .B getfiles fileID, fileID
+-Retrieve files with given IDs from a phone filesytem.
++Retrieve files with given IDs from a phone filesystem.
+ .UNINDENT
+ .INDENT 0.0
+ .TP
+--- a/gammu/depend/nokia/dct3trac/wmx-sim.c
++++ b/gammu/depend/nokia/dct3trac/wmx-sim.c
+@@ -231,7 +231,7 @@ void simAnswer_Process(unsigned char typ
+ 		*/
+ 		break;
+ 	default:
+-		printf("Uknown subtype! dumping data: ");
++		printf("Unknown subtype! dumping data: ");
+ 		for(x=0;x<length;x++) printf("%02x ", buffer[x]&0xFF);
+ 		//printf("\n");
+ 		break;
+--- a/gammu/depend/nokia/dct4.c
++++ b/gammu/depend/nokia/dct4.c
+@@ -99,7 +99,7 @@ static DCT4_Feature DCT4Features[] = {
+ 	{DCT4_JAVA_TCK,	                 "Java TCK support",             {{1,"on"},{0,"off"},{0,""}}},
+ 
+ 	{DCT4_ALS,		 	 "Alternate Line Service (ALS)", {{1,"on"},{0,"off"},{0,""}}},
+-	{DCT4_A52,		 	 "Ciphering alghoritm A52", 	 {{1,"on"},{0,"off"},{0,""}}},
++	{DCT4_A52,		 	 "Ciphering algorithm A52", 	 {{1,"on"},{0,"off"},{0,""}}},
+ 	{DCT4_CSP,		 	 "Customer Service Profile",	 {{0,"off"},{1,"on"},{0,""}}},
+ 	{DCT4_EONS,			 "EONS support",		 {{1,"on"},{0,"off"},{0,""}}},
+ 	{DCT4_3GINDICATOR,		 "3G indicator",		 {{1,"on"},{0,"off"},{0,""}}},
+--- a/libgammu/phone/at/atgen.c
++++ b/libgammu/phone/at/atgen.c
+@@ -315,7 +315,7 @@ GSM_Error ATGEN_HandleCMEError(GSM_State
+ 	GSM_Phone_ATGENData *Priv = &s->Phone.Data.Priv.ATGEN;
+ 
+ 	if (Priv->ErrorCode == 0) {
+-		smprintf(s, "CME Error occured, but it's type not detected\n");
++		smprintf(s, "CME Error occurred, but it's type not detected\n");
+ 	} else if (Priv->ErrorText == NULL) {
+ 		smprintf(s, "CME Error %i, no description available\n", Priv->ErrorCode);
+ 	} else {
+@@ -378,7 +378,7 @@ GSM_Error ATGEN_HandleCMSError(GSM_State
+ 	GSM_Phone_ATGENData *Priv = &s->Phone.Data.Priv.ATGEN;
+ 
+ 	if (Priv->ErrorCode == 0) {
+-		smprintf(s, "CMS Error occured, but it's type not detected\n");
++		smprintf(s, "CMS Error occurred, but it's type not detected\n");
+ 	} else if (Priv->ErrorText == NULL) {
+ 		smprintf(s, "CMS Error %i, no description available\n", Priv->ErrorCode);
+ 	} else {
+--- a/libgammu/service/gsmcal.c
++++ b/libgammu/service/gsmcal.c
+@@ -144,7 +144,7 @@ void GSM_GetCalendarRecurranceRepeat(GSM
+ 	if (Recurrance == 0xffff) Recurrance=24*365;
+ 	/* dct3: unavailable, dct4: 65534 (0xffff-1) is 30 days */
+ 	if (Recurrance == 0xffff-1) Recurrance=24*30;
+-	smfprintf(di, "Recurrance   : %i hours\n",Recurrance);
++	smfprintf(di, "Recurrence   : %i hours\n",Recurrance);
+ 
+ 	for (i=0;i<entry->EntriesNum;i++) {
+ 		if (entry->Entries[i].EntryType == CAL_START_DATETIME) {
+--- a/libgammu/service/gsmdata.c
++++ b/libgammu/service/gsmdata.c
+@@ -656,7 +656,7 @@ GSM_Error GSM_DecodeMMSFileToMultiPart(G
+ 			smfprintf(di, "  Message class     : ");
+ 			switch (file->Buffer[pos++]) {
+ 				case 0x80: smfprintf(di, "personal\n");	 break;
+-				case 0x81: smfprintf(di, "advertisment\n");	 break;
++				case 0x81: smfprintf(di, "advertisement\n");	 break;
+ 				case 0x82: smfprintf(di, "informational\n"); break;
+ 				case 0x83: smfprintf(di, "auto\n");		 break;
+ 				default  : smfprintf(di, "unknown\n");	 break;
+--- a/libgammu/service/sms/gsmmulti.c
++++ b/libgammu/service/sms/gsmmulti.c
+@@ -266,7 +266,7 @@ GSM_Error GSM_AddSMS_Text_UDH(GSM_Debug_
+ 		switch (Coding) {
+ 		case SMS_Coding_Default_No_Compression:
+ 			FindDefaultAlphabetLen(Buffer,&i,&j,FreeText);
+-			smfprintf(di, "Defalt text, length %ld %ld\n", (long)i, (long)j);
++			smfprintf(di, "Default text, length %ld %ld\n", (long)i, (long)j);
+ 			SMS->SMS[SMS->Number].Text[UnicodeLength(SMS->SMS[SMS->Number].Text)*2+i*2]   = 0;
+ 			SMS->SMS[SMS->Number].Text[UnicodeLength(SMS->SMS[SMS->Number].Text)*2+i*2+1] = 0;
+ 			memcpy(SMS->SMS[SMS->Number].Text+UnicodeLength(SMS->SMS[SMS->Number].Text)*2,Buffer,i*2);
+--- a/libgammu/phone/alcatel/alcatel.c
++++ b/libgammu/phone/alcatel/alcatel.c
+@@ -976,7 +976,7 @@ static GSM_Error ALCATEL_ReplyGetFieldVa
+ 		Priv->ReturnType 	= Alcatel_byte;
+ 		Priv->ReturnInt 	= buffer[3];
+ 	} else {
+-		smprintf(s, "WARNING: Uknown data type received (%02X,%02X)\n", buffer[1], buffer[2]);
++		smprintf(s, "WARNING: Unknown data type received (%02X,%02X)\n", buffer[1], buffer[2]);
+ 		return ERR_UNKNOWNRESPONSE;
+ 	}
+ 	return ERR_NONE;
+--- a/libgammu/phone/at/at-sms.c
++++ b/libgammu/phone/at/at-sms.c
+@@ -799,7 +799,7 @@ GSM_Error ATGEN_ReplyGetSMSMessage(GSM_P
+ 				}
+ 				sms->InboxFolder = FALSE;
+ 			} else {
+-				smprintf(s, "Uknown message state: %s\n", buffer);
++				smprintf(s, "Unknown message state: %s\n", buffer);
+ 				return ERR_UNKNOWN;
+ 			}
+ 

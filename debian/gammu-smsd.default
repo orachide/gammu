@@ -1,0 +1,14 @@
+# Defaults for gammu-smsd initscript
+# sourced by /etc/init.d/gammu-smsd
+# installed at /etc/default/gammu-smsd by the maintainer scripts
+
+#
+# This is a POSIX shell fragment
+#
+
+# Additional options that are passed to the Daemon.
+DAEMON_OPTS=""
+
+# user to use (gammu is default)
+#USER=gammu
+

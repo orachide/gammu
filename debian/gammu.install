@@ -1,0 +1,14 @@
+usr/bin/gammu
+usr/bin/gammu-config
+usr/bin/gammu-detect
+usr/bin/jadmaker
+usr/share/bash-completion/completions/gammu
+usr/share/doc/gammu/README.rst
+usr/share/doc/gammu/examples
+usr/share/man/man1/gammu-config.1
+usr/share/man/man1/gammu-detect.1
+usr/share/man/man1/gammu.1
+usr/share/man/man1/jadmaker.1
+usr/share/man/man5/gammu-backup.5
+usr/share/man/man5/gammu-smsbackup.5
+usr/share/man/man5/gammurc.5

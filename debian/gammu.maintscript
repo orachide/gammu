@@ -1,0 +1,2 @@
+# Bash completion is no longer included
+rm_conffile /etc/bash_completion.d/gammu 1.36.5-1 gammu

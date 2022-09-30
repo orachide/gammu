@@ -1,0 +1,3 @@
+include:
+  - pipeline/ci.yml
+  - pipeline/pipeline-jobs.yml

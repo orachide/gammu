@@ -1,0 +1,20 @@
+Gammu for Debian
+----------------
+
+If you want to use Gammu with Symbian phone, you have to install gnapplet to
+the phone. Currently available version is unfortunately incompatible with UIQ3
+phones (Symbian 9.1 and newer), help with porting gnapplet to this is welcome.
+
+As gnapplet can not be distributed in Debian package, you can download it from
+upstream website <http://cihar.com/gammu/#gnapplet>:
+
+http://dl.cihar.com/gammu/gnapplet/gnapplet.sis
+http://dl.cihar.com/gammu/gnapplet/gnapplet.ini
+
+SMSD daemon is now in separate package gammu-smsd. The daemon starts system
+wide by default with spool in files at /var/spool/gammu, but you can change
+configuration to use either MySQL or PostgreSQL database backends. Please note
+that Gammu user needs privileges to access device of your phone, you can do
+this usually by adding him to some group.
+
+ -- Michal Čihař <nijel@debian.org>  Mon, 30 Mar 2009 11:33:13 +0200

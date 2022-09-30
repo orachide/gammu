@@ -1,0 +1,8 @@
+debian/gammu-smsdrc /etc/
+usr/bin/gammu-smsd
+usr/bin/gammu-smsd-inject
+usr/bin/gammu-smsd-monitor
+usr/lib/systemd/system/gammu-smsd.service
+usr/share/man/man1/gammu-smsd*
+usr/share/man/man5/gammu-smsd*
+usr/share/man/man7/gammu-smsd*
